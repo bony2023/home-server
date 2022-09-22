@@ -3,9 +3,10 @@ services:
   app:
     container_name: firefly_app
     image: fireflyiii/core:latest
-    restart: always
+    restart: unless-stopped
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
+    env_file: ../.env
     ports:
       - 8080:8080
     depends_on:
@@ -14,7 +15,7 @@ services:
     container_name: firefly_db
     image: mariadb    
     hostname: fireflyiiidb
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
