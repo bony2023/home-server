@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  homebridge:
+    container_name: homebridge
+    image: oznu/homebridge:raspberry-pi
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PGID=${PUID}
+      - PUID=${PGID}
+      - TZ=${TZ}
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8105
+    volumes:
+      - ${ROOT}/config/homebridge:/homebridge
