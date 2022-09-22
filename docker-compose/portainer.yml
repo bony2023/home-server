@@ -8,4 +8,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${ROOT}/config/portainer:/data
     ports:
-      - 9000:9000
+      - 9001:9000
