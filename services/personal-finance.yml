@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   app:
-    container_name: firefly_app
+    container_name: fireflyiii_app
     image: fireflyiii/core:latest
     restart: unless-stopped
     volumes:
@@ -12,7 +12,7 @@ services:
     depends_on:
       - db
   db:
-    container_name: firefly_db
+    container_name: fireflyiii_db
     image: mariadb    
     hostname: fireflyiiidb
     restart: unless-stopped

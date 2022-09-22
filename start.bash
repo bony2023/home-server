@@ -3,4 +3,4 @@
 set -a
 source .env
 
-docker-compose -f "docker-compose/$1.yml" up -d
+docker-compose -f "services/$1.yml" up -d
