@@ -23,6 +23,18 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - firefly_iii_db:/var/lib/mysql
+
+  openbudgeteer:
+    container_name: openbudgeteer
+    image: axelander/openbudgeteer:latest
+    restart: unless-stopped
+    environment:
+      - Connection:Provider=sqlite
+    ports:
+      - 6100:80
+    volumes:
+      - ${ROOT}/config/openbudgeteer:/app/database
+
 volumes:
    firefly_iii_upload:
    firefly_iii_db:
