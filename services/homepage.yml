@@ -4,10 +4,12 @@ services:
     container_name: homepage
     image: ghcr.io/benphelps/homepage:latest
     restart: unless-stopped
-    network_mode: host
+    ports:
+      - 80:3000
     environment:
       - PUID=${PUID} # default user id, defined in .env
       - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
     volumes:
       - ${ROOT}/config/homepage:/app/config # config files
+      - ${ROOT}/config/homepage/icons:/app/public/icons # config files
